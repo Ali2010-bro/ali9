@@ -1,11 +1,19 @@
 <html manifest="Cache.manifest">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=1280, height=720, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <title>ALI HOST</title>
-
 <script>
-if (window.applicationCache.status=='0'){window.location.replace("cache.html");}
+if (window.applicationCache.status == 0) {
+    window.location.replace("cache.html");
+}
+window.applicationCache.onupdateready = function() {
+    window.applicationCache.swapCache();
+    window.location.reload(true);
+};
+window.applicationCache.oncached = function() {
+    window.location.reload(true);
+};
 </script>
 <script src="int64.js"></script>
 <script src="rop.js"></script>
@@ -34,6 +42,248 @@ function load_pocB(){
   }
  };
 }
+function jbdone(){
+ var inp=document.getElementById("input");
+ if(inp) inp.remove();
+ window.progress.innerHTML="Done";
+ goldhen();
+}
+function goldhen(){
+ progress.innerHTML="Loading...";
+ LoadedMSG="GoldHen Loaded";
+ PLfile="goldhen.bin";
+ out_jb="AllPL";
+ load_pocB();
+}
+function allset(){
+ window.progress.innerHTML=LoadedMSG;
+}
+</script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+
+html,body{
+ width:100%;
+ height:100%;
+ overflow:hidden;
+ background:#040d28;
+ font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;
+ color:#fff;
+}
+
+/* table trick للتمركز العمودي - يعمل على كل webkit */
+.outer{
+ display:table;
+ width:100%;
+ height:100%;
+ background:#040d28;
+}
+.inner{
+ display:table-cell;
+ vertical-align:middle;
+ text-align:center;
+}
+
+/* دوائر الخلفية */
+.orb1{
+ position:fixed;
+ width:380px; height:380px;
+ left:-100px; top:80px;
+ border-radius:50%;
+ background:-webkit-radial-gradient(circle,rgba(20,60,200,.6) 0%,rgba(10,25,100,.1) 60%,transparent 100%);
+ background:radial-gradient(circle,rgba(20,60,200,.6) 0%,rgba(10,25,100,.1) 60%,transparent 100%);
+}
+.orb2{
+ position:fixed;
+ width:320px; height:320px;
+ right:-60px; top:20px;
+ border-radius:50%;
+ background:-webkit-radial-gradient(circle,rgba(90,40,210,.6) 0%,rgba(50,15,120,.1) 60%,transparent 100%);
+ background:radial-gradient(circle,rgba(90,40,210,.6) 0%,rgba(50,15,120,.1) 60%,transparent 100%);
+}
+
+/* محتوى */
+.wrap{
+ display:inline-block;
+ width:580px;
+ text-align:center;
+}
+
+/* العنوان */
+.htitle{
+ display:inline-block;
+ vertical-align:middle;
+ margin-bottom:8px;
+}
+.bolt{
+ display:inline-block;
+ vertical-align:middle;
+ width:50px; height:50px;
+ border-radius:12px;
+ background:-webkit-linear-gradient(135deg,#1a6fff,#7b2fff);
+ background:linear-gradient(135deg,#1a6fff,#7b2fff);
+ margin-right:12px;
+ padding-top:11px;
+}
+.bolt svg{width:26px;height:26px;fill:#fff;}
+
+.tname{
+ display:inline-block;
+ vertical-align:middle;
+ font-size:52px;
+ font-weight:900;
+ letter-spacing:3px;
+ text-transform:uppercase;
+ background:-webkit-linear-gradient(left,#4fc3f7,#a78bfa,#f9a8d4,#fff);
+ background:linear-gradient(to right,#4fc3f7,#a78bfa,#f9a8d4,#fff);
+ -webkit-background-clip:text;
+ -webkit-text-fill-color:transparent;
+ color:#7ec8f7;
+}
+
+.sub{
+ display:block;
+ font-size:13px;
+ color:#8899bb;
+ margin-bottom:22px;
+}
+
+/* حالة */
+#progress{
+ display:block;
+ font-size:30px;
+ font-weight:700;
+ color:#22d3ee;
+ margin-bottom:10px;
+ text-shadow:0 0 14px rgba(34,211,238,.7);
+}
+
+.dots{
+ display:inline-block;
+ margin-bottom:22px;
+}
+.dot{
+ display:inline-block;
+ width:11px; height:11px;
+ border-radius:50%;
+ margin:0 4px;
+ -webkit-animation:db 1.4s infinite ease-in-out both;
+ animation:db 1.4s infinite ease-in-out both;
+}
+.dot:nth-child(1){background:#38bdf8;-webkit-animation-delay:0s;animation-delay:0s;}
+.dot:nth-child(2){background:#818cf8;-webkit-animation-delay:.22s;animation-delay:.22s;}
+.dot:nth-child(3){background:#f472b6;-webkit-animation-delay:.44s;animation-delay:.44s;}
+
+@-webkit-keyframes db{
+ 0%,80%,100%{-webkit-transform:scale(.35);opacity:.4;}
+ 40%{-webkit-transform:scale(1.1);opacity:1;}
+}
+@keyframes db{
+ 0%,80%,100%{transform:scale(.35);opacity:.4;}
+ 40%{transform:scale(1.1);opacity:1;}
+}
+
+/* كروت */
+.card{
+ display:block;
+ width:580px;
+ background:rgba(6,12,38,.88);
+ border:1px solid rgba(255,255,255,.1);
+ border-radius:16px;
+ padding:16px 20px;
+ margin:0 auto 12px auto;
+ text-align:left;
+}
+.card-row{
+ display:table;
+ width:100%;
+}
+.ico-wrap{
+ display:table-cell;
+ vertical-align:middle;
+ width:52px;
+ padding-right:16px;
+}
+.ico-wrap div{
+ width:48px; height:48px;
+ border-radius:50%;
+ background:-webkit-linear-gradient(135deg,rgba(100,60,220,.7),rgba(50,20,150,.5));
+ background:linear-gradient(135deg,rgba(100,60,220,.7),rgba(50,20,150,.5));
+ border:1px solid rgba(150,100,255,.35);
+ padding-top:12px;
+ text-align:center;
+}
+.ico-wrap svg{width:22px;height:22px;fill:#fff;}
+.card-txt{display:table-cell;vertical-align:middle;}
+.lbl{display:block;font-size:13px;color:#8899bb;margin-bottom:6px;}
+.pill{
+ display:inline-block;
+ padding:6px 18px;
+ border-radius:30px;
+ background:rgba(240,240,255,.93);
+ font-size:13px;
+ color:#0a0f28;
+ font-weight:700;
+}
+.tks{font-size:13px;color:#e2e8f0;line-height:1.5;}
+
+#button-Payload{display:none;}
+</style>
+</head>
+<body>
+<div class="outer">
+ <div class="inner">
+  <div class="orb1"></div>
+  <div class="orb2"></div>
+  <div class="wrap">
+
+   <div class="htitle">
+    <div class="bolt">
+     <svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+    </div>
+    <span class="tname">ALI HOST</span>
+   </div>
+
+   <span class="sub">Auto Exploit GoldHen new PSFree Webkit 900fw</span>
+
+   <div id="progress">Loading...</div>
+
+   <div class="dots">
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+   </div>
+
+   <div class="card">
+    <div class="card-row">
+     <div class="ico-wrap">
+      <div><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14.5v-9l6 4.5-6 4.5z"/></svg></div>
+     </div>
+     <div class="card-txt">
+      <span class="lbl">Designed &amp; Hosted by:</span>
+      <span class="pill">Ali mahmood and Yassir and Omar</span>
+     </div>
+    </div>
+   </div>
+
+   <div class="card">
+    <div class="card-row">
+     <div class="ico-wrap">
+      <div><svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div>
+     </div>
+     <div class="card-txt">
+      <span class="lbl">Super Special Thanks To:</span>
+      <span class="tks">Sleirsgoevy , Al Azif , ChendoChap , SiSTRo , Abc , Specter , Znullptr ...</span>
+     </div>
+    </div>
+   </div>
+
+  </div>
+ </div>
+</div>
+<button id="button-Payload" onclick="goldhen()"></button>
+</body>
+</html>
 function jbdone() {
  var inp = document.getElementById("input");
  if(inp) inp.remove();
